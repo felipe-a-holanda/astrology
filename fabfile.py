@@ -1,6 +1,6 @@
 from os.path import join
 
-from fabric.operations import run
+from fabric.operations import run, local
 from fabric.api import task
 from fabric.state import env
 from contextlib import contextmanager
@@ -59,6 +59,7 @@ def initial_setup():
 
 @task
 def deploy():
+    local('git push --all')
     with cd(env.path):
         run("git pull")
         run("git reset --hard")
