@@ -3,3 +3,4 @@ gettext
 python-dev
 python-pip
 python-virtualenv
+apache2
