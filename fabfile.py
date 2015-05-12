@@ -61,8 +61,8 @@ def initial_setup():
 def deploy():
     local('git push --all')
     with cd(env.path):
-        run("git pull")
         run("git reset --hard")
+        run("git pull")
         run("git checkout -f")
         run("chown -R {http_user}:{http_group} .".format(**env))
     py_dep()
