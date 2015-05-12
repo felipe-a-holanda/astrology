@@ -67,7 +67,8 @@ def deploy():
     py_dep()
     with virtualenv():
         with cd(env.app_path):
-            run('python manage.py migrate')
+            with shell_env(DJANGO_SETTINGS_MODULE='config.settings.production'):
+                run('python manage.py migrate')
         
     restart()
 
@@ -75,4 +76,4 @@ def deploy():
 def test():
     with virtualenv():
         with cd(env.app_path):
-            run('pwd')
+            run('echo $DJANGO_SETTINGS_MODULE')
