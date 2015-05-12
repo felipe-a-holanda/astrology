@@ -13,6 +13,7 @@ env.http_group = 'www-data'
 env.hosts = ['104.236.42.196']
 env.www_path = '/var/www'
 env.path = join(env.www_path, 'astrology')
+env.app_path = join(env.path, 'astro')
 env.server_conf = 'astro/config/apache2/astro.conf'
 
 env.venv_name = 'venv'
@@ -64,14 +65,14 @@ def deploy():
         run("git checkout -f")
         run("chown -R {http_user}:{http_group} .".format(**env))
     py_dep()
-    with cd(env.app_path):
-        with virtualenv():
+    with virtualenv():
+        with cd(env.app_path):
             run('python manage.py migrate')
         
     restart()
 
 @task
 def test():
-    
-    with cd(env.path):
-        run('pwd')
+    with virtualenv():
+        with cd(env.app_path):
+            run('pwd')
