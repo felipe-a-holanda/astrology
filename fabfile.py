@@ -64,6 +64,10 @@ def deploy():
         run("git checkout -f")
         run("chown -R {http_user}:{http_group} .".format(**env))
     py_dep()
+    with cd(env.app_path):
+        with virtualenv():
+            run('python manage.py migrate')
+        
     restart()
 
 @task
