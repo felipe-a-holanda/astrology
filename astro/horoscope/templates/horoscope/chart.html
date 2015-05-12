@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load app_filters %}
+
+
+<div id="some-text">
+      <li>The current language is <b>{{ LANGUAGE_CODE }}</b></li>
+</div>
+
+
+{% for planet in planets %}
+    <p>
+        <h3><a href="{% url 'planet_in_sign' planet.code planet.sign_code %}">{{ planet.name }} {% trans "in" %} {{ planet.sign }}</a> ({{ planet.angle|dms }})</h3>
+    </p>
+{% endfor %}
+

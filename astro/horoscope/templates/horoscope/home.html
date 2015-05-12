@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+
+
+{% block main_content %}
+
+
+    <form  method="POST" id="chart-form">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class='col-sm-2'>
+                <input class="form-control" type='text' id='datepicker' placeholder="{% trans 'Date' %}"/>
+            </div>
+            <div class='col-sm-1'>
+                <input class="form-control" type='text' id='timepicker' placeholder="{% trans 'Time' %}"/>
+            </div>
+            <input type="submit" value="Post" class="tiny button">
+            <div class='col-sm-4'>
+                <input class="form-control" type='text' id="location" placeholder="{% trans 'Location' %}" autocomplete="off"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class='col-sm-6'>
+                <input class="form-control" type="text" id="name" placeholder="{% trans 'Name' %}">
+            </div>
+            <div class='col-sm-4'>
+                <button type="submit"  class="btn btn-default" aria-label="Left Align" >
+                    <span class="glyphicon glyphicon-save" aria-hidden="true">{% trans 'Save' %}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+{% timezone "America/Sao_Paulo" %}
+    {{ date }}
+{% endtimezone %}
+
+
+
+    <div class="output">
+        <svg id="svgout" width="100%" height="600px"></svg>
+    </div>
+
+    <div class="row">
+        <div id="chart"></div>
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/location.js' %}" ></script>
+<script type="text/javascript">
+$(function () {
+    $('#datepicker').datetimepicker({
+    useCurrent: true,
+        defaultDate: "{{ datenow }}",
+        showTodayButton: false,
+        viewMode: 'years',
+        sideBySide: true,
+        locale: 'pt_BR',
+        format: 'DD/MM/YYYY',
+        sideBySide: false,
+    }).on('dp.hide', function (ev){
+        updateTime();
+    });
+
+    $('#timepicker').datetimepicker({
+        useCurrent: true,
+        defaultDate: "{{ datenow }} {{ timenow }}",
+        showTodayButton: false,
+        //format: 'LT',
+        format: 'HH:mm',
+        locale: 'pt_BR',
+        sideBySide: false,
+    }).on('dp.hide', function (ev){
+        updateTime();
+    });
+
+    // Submit post on submit
+    $('#chart-form').on('submit', function(event){
+        event.preventDefault();
+        save_event();
+    });
+
+    // AJAX for posting
+    function save_event(){
+        name = $('#name').val();
+        date = $('#datepicker').val();
+        time = $('#timepicker').val();
+        //location = $('#location').val();
+
+        event = {
+            'name': name,
+            'date': date,
+            'time': time,
+            //'location': location,
+        }
+
+        $.ajax({
+        url : "{% url 'save_event' %}", // the endpoint
+        type : "POST", // http method
+        data : event, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            $('#post-text').val(''); // remove the value from the input
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+        });
+
+
+        console.log(event);
+
+    };
+
+
+});
+
+
+
+</script>
+{% endblock scripts %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load app_filters %}
+
+{% block main_content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>{% trans 'Name' %}</th>
+        <th>{% trans 'Date' %}</th>
+        <th>{% trans 'Location' %}</th>
+        <th>{% trans 'Sun' %}</th>
+        <th>{% trans 'Moon' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for event in events %}
+    <tr>
+        <td>{{ event.name }}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.ephemeris.sun | sign }}</td>
+        <td>{{ event.ephemeris.moon | sign }}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}
