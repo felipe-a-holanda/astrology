@@ -66,7 +66,6 @@
 $(function () {
     $('#datepicker').datetimepicker({
     useCurrent: true,
-        defaultDate: "{{ datenow }}",
         showTodayButton: false,
         viewMode: 'years',
         sideBySide: true,
@@ -79,7 +78,6 @@ $(function () {
 
     $('#timepicker').datetimepicker({
         useCurrent: true,
-        defaultDate: "{{ datenow }} {{ timenow }}",
         showTodayButton: false,
         //format: 'LT',
         format: 'HH:mm',
