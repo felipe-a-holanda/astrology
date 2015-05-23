@@ -20,6 +20,7 @@ env = environ.Env()
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR
 
+SITE_ID = 1
 
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,6 +49,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    
+    'allauth',
+	'allauth.account',
+	'allauth.socialaccount',
+	'allauth.socialaccount.providers.facebook',
 
     'users',
     'horoscope',
@@ -69,30 +76,50 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'config.urls'
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend"
+)
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+	'django.template.context_processors.debug',
+	'django.template.context_processors.i18n',
+	'django.template.context_processors.media',
+	'django.template.context_processors.static',
+	'django.template.context_processors.tz',
+	'django.template.context_processors.request',
+	'django.contrib.messages.context_processors.messages',
+	"django.contrib.auth.context_processors.auth",
+	"allauth.account.context_processors.account",
+	"allauth.socialaccount.context_processors.socialaccount",
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [ROOT_DIR('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.template.context_processors.request',
-                'django.contrib.messages.context_processors.messages',
-            ],
+            'context_processors': TEMPLATE_CONTEXT_PROCESSORS,
         },
     },
 ]
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.auth",
-    "django.core.context_processors.i18n",
-)
+
+
+LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email'],
+        'METHOD': 'js_sdk'  # instead of 'oauth2'
+    }
+}
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -128,6 +155,8 @@ USE_TZ = True
 LOCALE_PATHS = (
     ROOT_DIR('config/locale/'),
 )
+
+FIXTURE_DIRS = (ROOT_DIR('fixtures'),)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
