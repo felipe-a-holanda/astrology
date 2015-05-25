@@ -18,7 +18,6 @@ class UserDetail(generics.RetrieveAPIView):
     queryset = UserProfile.objects.all()
     model = UserProfile
     serializer_class = UserSerializer
-    lookup_field = 'username'
 
 
 class EventList(generics.ListCreateAPIView):
@@ -31,10 +30,8 @@ class EventList(generics.ListCreateAPIView):
     
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Event.objects.all()
-    model = Event
+    queryset = Event.objects.all().select_related('ephemeris', 'location')
     serializer_class = EventSerializer
-    lookup_field = 'pk'
     permission_classes = [
         permissions.AllowAny
     ]
@@ -58,5 +55,5 @@ class UserEventList(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = super(UserEventList, self).get_queryset()
-        return queryset.filter(user__username=self.kwargs.get('username'))
+        return queryset.filter(user=self.kwargs.get('pk'))
 

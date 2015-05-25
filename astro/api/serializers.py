@@ -7,12 +7,12 @@ from profiles.models import UserProfile
 
 
 class UserSerializer(serializers.ModelSerializer):
-    #events = serializers.HyperlinkedIdentityField('events',  lookup_field='username')
-    events = serializers.HyperlinkedIdentityField(view_name='userevent-list', lookup_field='username')
+    events = serializers.HyperlinkedIdentityField(view_name='user-event-list')
+    detail = serializers.HyperlinkedIdentityField(view_name='user-detail')
 
     class Meta:
         model = UserProfile
-        fields = ('id', 'username', 'name', 'events')
+        fields = ('id', 'username', 'name', 'detail', 'events')
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,9 +24,8 @@ class EphemerisSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-
+    user = serializers.HyperlinkedIdentityField(view_name='user-event-list')
     location = LocationSerializer(read_only=True)
-    #ephemeris = serializers.HyperlinkedIdentityField(view_name='ephemeris-detail', lookup_field='ephemeris')
     ephemeris = EphemerisSerializer(read_only=True)
 
     class Meta:

@@ -118,9 +118,6 @@ class Location(models.Model):
     def geocode(self, text):
         g = geocoder.google(text)
         if g.ok:
-            print g
-            from IPython import embed
-            #embed()
             self.address = g.address
             self.city = g.city
             self.state = g.state
