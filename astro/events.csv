@@ -1,0 +1,14 @@
+username,name,date,time,local,groups
+azul,Felipe Andrade Holanda,1986/12/22,06:34:00,"Limoeiro do Norte","escargot, grande_escargot"
+azul,Robson Oliveira,1990/02/04,13:10:00,"Iguatu (Ceará), BRAS","escargot, grande_escargot"
+azul,Luara Maria Zago,1994/02/02,12:00:00,"Jaú (São Paulo), BRAS","escargot, grande_escargot"
+azul,Claudio Trigo,1993/02/26,09:46:00,"São Paulo, BRAS",grande_escargot
+azul,Rodrigo Marcelo Cardoso Ramos,1991/07/13,21:35:00,"Curitiba (Paraná), BRAS","escargot, grande_escargot"
+bode,Rodrigo Godoi Sousas,1986/12/27,09:35:00,"Jacareí (São Paulo), BRAS","3o_olho, grande_escargot"
+bode,Catharina Inagaki,1995/03/24,02:00:00,"Ribeirão Preto (São Paulo), BRAS","escargot, grande_escargot"
+bode,Isis Frank,1990/10/16,21:05:00,"São José dos Campos (São Paulo), BRAS","escargot, grande_escargot"
+bode,Beatriz Nogueira,1988/11/26,17:05:00,"Cerqueira César (São Paulo), BRAS","escargot, grande_escargot"
+barata,Fernando Rafael Ferreira,1987/01/10,03:36:00,"Campinas (São Paulo), BRAS","3o_olho, grande_escargot"
+barata,Luna Rabay,1994/02/09,09:50:00,"João Pessoa (Paraíba), BRAS","escargot, grande_escargot"
+barata,Maria Reisewitz,1994/01/31,06:45:00,"São Paulo, BRAS","escargot, grande_escargot"
+barata,Zorica Atanasovska,1986/08/12,10:50:00,"Gevgelija, MKD","escargot, grande_escargot"

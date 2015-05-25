@@ -1,4 +1,5 @@
-from datetime import datetime
+#from datetime import datetime
+from dateutil.parser import parse
 import geocoder
 import swisseph as swe
 swe.set_ephe_path('/usr/share/libswe/ephe/')
@@ -6,7 +7,7 @@ swe.set_ephe_path('/usr/share/libswe/ephe/')
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy
 from django.db import models
-from users.models import UserProfile
+from profiles.models import UserProfile
 
 
 class Event(models.Model):
@@ -26,12 +27,9 @@ class Event(models.Model):
     def __cmp__(self, other):
         return cmp(self.name, other.name)
 
-
     @classmethod
     def create(cls, name, date, time, location):
-
-        #datetime_utc = datetime.strptime("%s %s" % (date, time), "%d/%m/%Y %H:%M")
-        datetime_utc = datetime.strptime("%s %s" % (date, time), "%Y/%m/%d %H:%M")
+        datetime_utc = parse("%s %s" % (date, time))
         ephemeris = Ephemeris.create(datetime_utc)
         if ephemeris:
             ephemeris.save()
