@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from rest_framework import serializers
 
-from horoscope.models import Event, Location, Ephemeris
+from horoscope.models import Event, Location, Ephemeris, Houses
 from profiles.models import UserProfile
 
 
@@ -23,14 +23,20 @@ class EphemerisSerializer(serializers.ModelSerializer):
         model = Ephemeris
 
 
+class HousesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Houses
+
+
 class EventSerializer(serializers.ModelSerializer):
     user = serializers.HyperlinkedIdentityField(view_name='user-event-list')
     location = LocationSerializer(read_only=True)
     ephemeris = EphemerisSerializer(read_only=True)
+    houses = HousesSerializer(read_only=True)
 
     class Meta:
         model = Event
-        fields = ('id', 'user', 'name', 'date', 'location', 'ephemeris')
+        fields = ('id', 'user', 'name', 'date', 'location', 'ephemeris', 'houses')
 
 
 class EventInListSerializer(serializers.ModelSerializer):

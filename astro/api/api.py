@@ -30,7 +30,7 @@ class EventList(generics.ListCreateAPIView):
     
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Event.objects.all().select_related('ephemeris', 'location')
+    queryset = Event.objects.all().select_related('ephemeris', 'location', 'houses')
     serializer_class = EventSerializer
     permission_classes = [
         permissions.AllowAny

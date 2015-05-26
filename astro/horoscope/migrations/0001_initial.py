@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=256)),
                 ('date', models.DateTimeField()),
-                ('ephemeris', models.ForeignKey(related_name='event', to='horoscope.Ephemeris')),
+                ('ephemeris', models.OneToOneField(related_name='event', to='horoscope.Ephemeris')),
             ],
             options={
                 'verbose_name': 'event',
@@ -58,10 +58,27 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='Houses',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('house_1', models.FloatField()),
+                ('house_2', models.FloatField()),
+                ('house_3', models.FloatField()),
+                ('house_4', models.FloatField()),
+                ('house_5', models.FloatField()),
+                ('house_6', models.FloatField()),
+                ('house_7', models.FloatField()),
+                ('house_8', models.FloatField()),
+                ('house_9', models.FloatField()),
+                ('house_10', models.FloatField()),
+                ('house_11', models.FloatField()),
+                ('house_12', models.FloatField()),
+            ],
+        ),
+        migrations.CreateModel(
             name='Location',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('address', models.CharField(max_length=512)),
                 ('city', models.CharField(max_length=512)),
                 ('state', models.CharField(max_length=512)),
                 ('country', models.CharField(max_length=512)),
@@ -72,6 +89,11 @@ class Migration(migrations.Migration):
                 'verbose_name': 'location',
                 'verbose_name_plural': 'locations',
             },
+        ),
+        migrations.AddField(
+            model_name='event',
+            name='houses',
+            field=models.OneToOneField(related_name='event', to='horoscope.Houses'),
         ),
         migrations.AddField(
             model_name='event',
