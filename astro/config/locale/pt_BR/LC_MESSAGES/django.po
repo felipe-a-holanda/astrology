@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 02:25+0000\n"
+"POT-Creation-Date: 2015-05-26 00:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,196 +17,231 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: config/settings/common.py:116
+#: config/settings/common.py:120
 msgid "Brazilian Portuguese"
-msgstr ""
+msgstr "Português Brasileiro"
 
-#: config/settings/common.py:117
+#: config/settings/common.py:121
 msgid "English"
-msgstr ""
+msgstr "Inglês"
 
 #: horoscope/apps.py:6
 msgid "Horoscope"
 msgstr "Horóscopo"
 
-#: horoscope/models.py:17
+#: horoscope/models.py:14
+msgid "User"
+msgstr "Usuário"
+
+#: horoscope/models.py:15 horoscope/templates/horoscope/event_list.html:9
+#: horoscope/templates/horoscope/home.html:27 profiles/models.py:10
+msgid "Name"
+msgstr "Nome"
+
+#: horoscope/models.py:16 horoscope/templates/horoscope/event_list.html:10
+#: horoscope/templates/horoscope/home.html:15
+msgid "Date"
+msgstr "Data"
+
+#: horoscope/models.py:17 horoscope/templates/horoscope/event_list.html:11
+#: horoscope/templates/horoscope/home.html:21
+msgid "Location"
+msgstr "Local"
+
+#: horoscope/models.py:18
+msgid "Events"
+msgstr "Eventos"
+
+#: horoscope/models.py:19
+msgid "Houses"
+msgstr "Casas"
+
+#: horoscope/models.py:22
 msgid "event"
 msgstr "evento"
 
-#: horoscope/models.py:18
+#: horoscope/models.py:23
 msgid "events"
 msgstr "eventos"
 
-#: horoscope/models.py:26 horoscope/views.py:74
+#: horoscope/models.py:64 horoscope/templates/horoscope/event_list.html:12
+#: horoscope/utils.py:17
 msgid "Sun"
 msgstr "Sol"
 
-#: horoscope/models.py:27 horoscope/views.py:75
+#: horoscope/models.py:65 horoscope/templates/horoscope/event_list.html:13
+#: horoscope/utils.py:18
 msgid "Moon"
 msgstr "Lua"
 
-#: horoscope/models.py:28 horoscope/views.py:76
+#: horoscope/models.py:66 horoscope/utils.py:19
 msgid "Mercury"
 msgstr "Mercúrio"
 
-#: horoscope/models.py:29 horoscope/views.py:77
+#: horoscope/models.py:67 horoscope/utils.py:20
 msgid "Venus"
 msgstr "Vênus"
 
-#: horoscope/models.py:30 horoscope/views.py:78
+#: horoscope/models.py:68 horoscope/utils.py:21
 msgid "Mars"
 msgstr "Marte"
 
-#: horoscope/models.py:31 horoscope/views.py:79
+#: horoscope/models.py:69 horoscope/utils.py:22
 msgid "Jupiter"
 msgstr "Júpiter"
 
-#: horoscope/models.py:32 horoscope/views.py:80
+#: horoscope/models.py:70 horoscope/utils.py:23
 msgid "Saturn"
 msgstr "Saturno"
 
-#: horoscope/models.py:33 horoscope/views.py:81
+#: horoscope/models.py:71 horoscope/utils.py:24
 msgid "Uranus"
 msgstr "Urano"
 
-#: horoscope/models.py:34 horoscope/views.py:82
+#: horoscope/models.py:72 horoscope/utils.py:25
 msgid "Neptune"
 msgstr "Netuno"
 
-#: horoscope/models.py:35 horoscope/views.py:83
+#: horoscope/models.py:73 horoscope/utils.py:26
 msgid "Pluto"
 msgstr "Plutão"
 
-#: horoscope/models.py:52
+#: horoscope/models.py:90
 msgctxt "singular"
 msgid "ephemeris"
 msgstr "efeméride"
 
-#: horoscope/models.py:53
+#: horoscope/models.py:91
 msgctxt "plural"
 msgid "ephemeris"
 msgstr "efemérides"
 
-#: horoscope/models.py:80
+#: horoscope/models.py:150
 msgid "location"
 msgstr "local"
 
-#: horoscope/models.py:81
+#: horoscope/models.py:151
 msgid "locations"
 msgstr "locais"
 
-#: horoscope/templates/horoscope/chart.html:29 horoscope/views.py:120
-msgid "Planet"
-msgstr "Planeta"
-
-#: horoscope/templates/horoscope/chart.html:30
-msgid "Sign"
-msgstr "Signo"
-
-#: horoscope/templates/horoscope/chart.html:31
-msgid "Angle"
-msgstr "Ângulo"
-
-#: horoscope/templates/horoscope/chart.html:45
+#: horoscope/templates/horoscope/chart.html:12
+#: interpretation/templates/interpretation/planet_in_sign.html:7
 msgid "in"
 msgstr "em"
 
-#: horoscope/views.py:61
+#: horoscope/templates/horoscope/home.html:18
+msgid "Time"
+msgstr "Hora"
+
+#: horoscope/templates/horoscope/home.html:31
+msgid "Save"
+msgstr "Salvar"
+
+#: horoscope/utils.py:4
 msgid "Aries"
 msgstr "Áries"
 
-#: horoscope/views.py:62
+#: horoscope/utils.py:5
 msgid "Taurus"
 msgstr "Touro"
 
-#: horoscope/views.py:63
+#: horoscope/utils.py:6
 msgid "Gemini"
 msgstr "Gêmeos"
 
-#: horoscope/views.py:64
+#: horoscope/utils.py:7
 msgid "Cancer"
 msgstr "Câncer"
 
-#: horoscope/views.py:65
+#: horoscope/utils.py:8
 msgid "Leo"
 msgstr "Leão"
 
-#: horoscope/views.py:66
+#: horoscope/utils.py:9
 msgid "Virgo"
 msgstr "Virgem"
 
-#: horoscope/views.py:67
+#: horoscope/utils.py:10
 msgid "Libra"
 msgstr "Libra"
 
-#: horoscope/views.py:68
+#: horoscope/utils.py:11
 msgid "Scorpio"
 msgstr "Escorpião"
 
-#: horoscope/views.py:69
+#: horoscope/utils.py:12
 msgid "Sagittarius"
 msgstr "Sagitário"
 
-#: horoscope/views.py:70
+#: horoscope/utils.py:13
 msgid "Capricorn"
 msgstr "Capricórnio"
 
-#: horoscope/views.py:71
+#: horoscope/utils.py:14
 msgid "Aquarius"
 msgstr "Aquário"
 
-#: horoscope/views.py:72
+#: horoscope/utils.py:15
 msgid "Pisces"
 msgstr "Peixes"
 
-#: horoscope/views.py:84
+#: horoscope/utils.py:27
 msgid "Mean_Node"
 msgstr ""
 
-#: horoscope/views.py:85
+#: horoscope/utils.py:28
 msgid "True_Node"
 msgstr ""
 
-#: horoscope/views.py:86
+#: horoscope/utils.py:29
 msgid "Mean_Apog"
 msgstr ""
 
-#: horoscope/views.py:87
+#: horoscope/utils.py:30
 msgid "Oscu_Apog"
 msgstr ""
 
-#: horoscope/views.py:88
+#: horoscope/utils.py:31
 msgid "Earth"
-msgstr ""
+msgstr "Terra"
 
-#: horoscope/views.py:89
+#: horoscope/utils.py:32
 msgid "Chiron"
 msgstr ""
 
-#: horoscope/views.py:90
+#: horoscope/utils.py:33
 msgid "Pholus"
 msgstr ""
 
-#: horoscope/views.py:91
+#: horoscope/utils.py:34
 msgid "Ceres"
 msgstr ""
 
-#: horoscope/views.py:92
+#: horoscope/utils.py:35
 msgid "Pallas"
 msgstr ""
 
-#: horoscope/views.py:93
+#: horoscope/utils.py:36
 msgid "Juno"
 msgstr ""
 
-#: horoscope/views.py:94
+#: horoscope/utils.py:37
 msgid "Vesta"
 msgstr ""
 
-#: horoscope/views.py:95
+#: horoscope/utils.py:38
 msgid "Intp_Apog"
 msgstr ""
 
-#: horoscope/views.py:96
+#: horoscope/utils.py:39
 msgid "Intp_Perg"
 msgstr ""
+
+#~ msgid "Planet"
+#~ msgstr "Planeta"
+
+#~ msgid "Sign"
+#~ msgstr "Signo"
+
+#~ msgid "Angle"
+#~ msgstr "Ângulo"
