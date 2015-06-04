@@ -14,6 +14,8 @@ class Event(models.Model):
     user = models.ForeignKey(UserProfile, related_name='events', null=True, verbose_name=_('User'))
     name = models.CharField(max_length=256, verbose_name=_('Name'))
     date = models.DateTimeField(verbose_name=_('Date'))
+    city = models.CharField(max_length=256, verbose_name=_('City'))
+
     location = models.ForeignKey('Location', related_name='events', null=True, verbose_name=_('Location'))
     ephemeris = models.OneToOneField('Ephemeris', related_name='event', verbose_name=_('Events'))
     houses = models.OneToOneField('Houses', related_name='event', verbose_name=_('Houses'))
@@ -28,6 +30,15 @@ class Event(models.Model):
     def __cmp__(self, other):
         return cmp(self.name, other.name)
 
+    def save(self, *args, **kwargs):
+        if not self.location:
+            self.location = Location.create(self.city)
+        if not self.ephemeris:
+            self.ephemeris = Ephemeris.create(self.date)
+        if not self.houses:
+            self.houses = Houses.create(self.date, self.location.lat, self.location.lng)
+        super(Event, self).save(*args, **kwargs)
+
     @classmethod
     def create(cls, name, date, time, location):
         datetime_utc = parse("%s %s" % (date, time))
@@ -35,14 +46,13 @@ class Event(models.Model):
         ephemeris.save()
 
         location = Location.create(location)
-        location.save()
 
         houses = Houses.create(datetime_utc, location.lat, location.lng)
-        houses.save()
 
         self = cls()
         self.name = name
         self.date = datetime_utc
+        self.city = "%s (%s)" % (location.city, location.country)
         self.ephemeris = ephemeris
         self.location = location
         self.houses = houses
@@ -101,6 +111,7 @@ class Ephemeris(models.Model):
         angles = obj._swe_calc(datetime_utc)
         for i, field in enumerate(obj._meta.fields[1:Ephemeris.N_PLANETS+1]):
             setattr(obj, field.name, angles[i])
+        obj.save()
         return obj
 
     def __str__(self):
@@ -126,6 +137,7 @@ class Houses(models.Model):
         angles = obj._swe_calc(datetime_utc, lat, lon)
         for i, field in enumerate(obj._meta.fields[1:13]):
             setattr(obj, field.name, angles[i])
+        obj.save()
         return obj
 
     def _swe_calc(self, datetime_utc, lat, lon):
@@ -163,11 +175,17 @@ class Location(models.Model):
     @classmethod
     def create(cls, text):
         g = geocoder.google(text)
+        print "A:",g
         if g.ok:
-            try:
-                return cls.objects.get(city=g.city, state=g.state, country=g.country)
-            except:
+            print "G,ok"
+            objs = cls.objects.filter(city=g.city, state=g.state, country=g.country)
+            if objs:
+                obj = objs[0]
+            else:
                 obj = cls()
                 obj.fill(g)
-                return obj
+                obj.save()
+            return obj
+
+        print "Error location<%s>" % text
         return None

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^api/', include('api.urls')),
     url(r'^horoscope/', include('horoscope.urls')),
     url(r'^interpretation/', include('interpretation.urls')),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 
 
 )

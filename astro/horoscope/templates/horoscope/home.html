@@ -18,7 +18,7 @@
                 <input class="form-control" type='text' id='timepicker' placeholder="{% trans 'Time' %}"/>
             </div>
             <div class='col-sm-4'>
-                <input class="form-control" type='text' id="location" placeholder="{% trans 'Location' %}" autocomplete="off"/>
+                <input class="form-control" type='text' id="location-input" placeholder="{% trans 'Location' %}" autocomplete="off"/>
             </div>
 
         </div>
@@ -97,13 +97,13 @@ $(function () {
         name = $('#name').val();
         date = $('#datepicker').val();
         time = $('#timepicker').val();
-        //location = $('#location').val();
+        //location = $('#location-input').val();
 
         event = {
             'name': name,
             'date': date,
             'time': time,
-            //'location': location,
+            'location': location,
         }
 
         $.ajax({

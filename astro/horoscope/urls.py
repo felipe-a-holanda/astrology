@@ -10,6 +10,7 @@ urlpatterns = patterns('horoscope.views',
     url(r'chart/save/', save_event, name='save_event'),
     url(r'chart/', chart),
     url(r'events/', my_events),
+    url(r'test/', test_anguglar),
 
 
 

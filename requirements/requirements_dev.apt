@@ -3,9 +3,5 @@ gettext
 python-dev
 python-pip
 python-virtualenv
-apache2
-libapache2-mod-wsgi
 swe-basic-data
 swe-standard-data
-libffi-dev
-libssl-dev

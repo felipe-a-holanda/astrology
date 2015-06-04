@@ -16,7 +16,7 @@ env.path = join(env.www_path, 'astrology')
 env.app_path = join(env.path, 'astro')
 env.server_conf = 'astro/config/apache2/astro.conf'
 
-env.venv_name = 'venv'
+env.venv_name = 'astrology'
 env.venv_path = join(env.www_path, env.venv_name)
 env.github_repo = 'git@github.com:flp9001/astrology.git'
 env.activate = 'source {venv_path}/bin/activate'.format(**env)
@@ -27,6 +27,16 @@ def virtualenv():
     with cd(env.path):
         with prefix(env.activate):
             yield
+
+@task
+def setup_dev():
+    local('sudo apt-get install virtualenvwrapper')
+    with prefix('WORKON_HOME=$HOME/.virtualenvs'):
+        with prefix('source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'):
+            local('mkvirtualenv {venv_name}'.format(**env), shell='/bin/bash')
+            with prefix('workon {venv_name}'.format(**env)):
+                local('pip install -r {path}/requirements/development.txt'.format(**env))
+
 
 @task
 def os_dep():
@@ -70,7 +80,8 @@ def deploy():
         with cd(env.app_path):
             with shell_env(DJANGO_SETTINGS_MODULE='config.settings.production'):
                 run('python manage.py migrate')
-        
+                run('python manage.py compilemessages')
+
     restart()
 
 @task

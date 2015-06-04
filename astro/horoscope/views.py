@@ -10,19 +10,22 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
 
 from django.utils import timezone
-from .models import Ephemeris, Event
+from .models import Ephemeris, Event, Houses, Location
 
 
 
 from utils import PLANET_NAMES, SIGNS
 
 
+def test_anguglar(request):
+    return render(request, 'horoscope/test_angular.html')
 
 def home(request):
     now = timezone.now()
     params = {}
     params['datenow'] = now.strftime("%d/%m/%Y")
     params['timenow'] = now.strftime("%H:%M")
+
 
     return render(request, 'horoscope/home.html', params)
 
@@ -50,23 +53,28 @@ def parse_date(date_str, time_str):
 
 
 def eph(request):
+    data = {}
     date = request.GET.get('date', None)
     time = request.GET.get('time', None)
 
-    planets = {'planets': get_planets(parse_date(date, time))}
+    date = parse_date(date, time)
+    location = request.GET.get('city', None)
+    if date and time and location:
+        l = Location.create(location)
+        houses = Houses.create(date, l.lat, l.lng)
+        data['houses'] = [getattr(houses, i.name) for i in houses._meta.fields[1:]]
+
+    data['planets'] = get_planets(date)
 
     return HttpResponse(
-        json.dumps(planets, indent=4),
+        json.dumps(data, indent=4),
         content_type='application/javascript; charset=utf8'
     )
 
 
 def get_planets(date):
     e = Ephemeris.create(date)
-
-
     planets = []
-
     for index, field in enumerate(e._meta.fields[:11]):
         if field.name != 'id':
             v = getattr(e, field.name)

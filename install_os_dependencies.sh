@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OS_REQUIREMENTS_FILENAME="requirements/requirements.apt"
+OS_REQUIREMENTS_FILENAME="requirements/requirements_dev.apt"
 
 # Handle call with wrong command
 function wrong_command()

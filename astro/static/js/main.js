@@ -33,6 +33,8 @@ function saveChart(){
 function updateTime(){
     date = $('#datepicker').data('DateTimePicker').date();
     time = $('#timepicker').data('DateTimePicker').date();
+    city = $('#location-input').val();
+
     if (date){date = date.format('DD-MM-YYYY');}
     else{date = "";}
 
@@ -40,8 +42,8 @@ function updateTime(){
     else{time = "";}
     datetime = date+"_"+time;
 
-    move_svg(date, time);
-    $('div#chart').load('/horoscope/chart/?&date='+date+'&time='+time);
+    move_svg(date, time, city);
+    //$('div#chart').load('/horoscope/chart/?&date='+date+'&time='+time);
 
 }
 
@@ -129,6 +131,19 @@ function aspect_force(a1, a2){
 }
 
 
+function move_svg(date, time, city){
+    var s = Snap("#svgout");
+
+    $.get( "/horoscope/eph/?date="+date+"&time="+time+'&city='+city, function(data) {
+        move_planets(s, data.planets);
+        move_aspects(s, data.planets);
+        if (data.houses) move_houses(s, data.houses);
+
+       }, 'json')
+}
+
+
+
 function move_aspects(s, planets){
     for(i=0;i<planets.length;i++){
        for(j=0;j<planets.length;j++){
@@ -154,29 +169,39 @@ function move_aspects(s, planets){
     }
 }
 
+function move_planets(s, planets){
+    $.each(planets, function(index, planet_data){
+        planet_name = planet_data.name;
+        planet_angle = planet_data.angle;
 
-function move_svg(date, time){
-    var s = Snap("#svgout");
+        var planet_id = "#"+planet_name;
 
-    $.get( "/horoscope/eph/?date="+date+"&time="+time, function(data) {
-        planets = data.planets;
-        $.each(planets, function(index, planet_data){
-            planet_name = planet_data.name;
-            planet_angle = planet_data.angle;
-
-            var planet_id = "#"+planet_name;
-
-            var planet = s.select(planet_id);
-            if (planet){
-                point = polar2rect(0, 0, 220, planet_angle);
-                planet.attr({'x':point.x, 'y':point.y, 'visibility':'visible'});
-            }
-        })
-
-        move_aspects(s, planets);
-
-       }, 'json')
+        var planet = s.select(planet_id);
+        if (planet){
+            point = polar2rect(0, 0, 220, planet_angle);
+            planet.attr({'x':point.x, 'y':point.y, 'visibility':'visible'});
+        }
+    })
 }
+
+function move_houses(s, houses){
+    for(i=0; i<12; i++){
+        var line = s.select('#house_'+(i+1));
+        var angle = houses[i];
+        var p1 = polar2rect(300, 300, 200, angle);
+        var p2 = polar2rect(300, 300, 240, angle);
+
+        if (i%4==0) line.attr({'stroke-width':2});
+        if (i==0) {
+            p1 = polar2rect(300, 300, 200, angle);
+            p2 = polar2rect(300, 300, 250, angle);
+            line.attr({'stroke-width':3});
+        }
+        line.attr({x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y});
+
+    }
+}
+
 
 
 
