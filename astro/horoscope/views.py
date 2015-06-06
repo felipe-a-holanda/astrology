@@ -4,6 +4,7 @@
 import json
 import urllib
 import geocoder
+import pytz
 from datetime import datetime
 from django.shortcuts import render
 from django.core.serializers.json import DjangoJSONEncoder
@@ -14,7 +15,7 @@ from .models import Ephemeris, Event, Houses, Location
 
 
 
-from utils import PLANET_NAMES, SIGNS
+from utils import PLANET_NAMES, SIGNS, dms
 
 
 def test_anguglar(request):
@@ -25,7 +26,6 @@ def home(request):
     params = {}
     params['datenow'] = now.strftime("%d/%m/%Y")
     params['timenow'] = now.strftime("%H:%M")
-
 
     return render(request, 'horoscope/home.html', params)
 
@@ -59,12 +59,18 @@ def eph(request):
 
     date = parse_date(date, time)
     location = request.GET.get('city', None)
+
     if date and time and location:
         l = Location.create(location)
+        date = l.timezone.localize(date)
+        date = date.astimezone(pytz.utc)
         houses = Houses.create(date, l.lat, l.lng)
         data['houses'] = [getattr(houses, i.name) for i in houses._meta.fields[1:]]
+        data['location'] = {'city': l.city, 'lat': dms(l.lat), 'lng': dms(l.lng)}
 
     data['planets'] = get_planets(date)
+    data['date'] = str(date)
+
 
     return HttpResponse(
         json.dumps(data, indent=4),

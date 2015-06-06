@@ -48,7 +48,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    #'cities_light',
+    'timezone_field',
     'rest_framework',
     'rest_framework_swagger',
 

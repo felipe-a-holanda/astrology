@@ -185,6 +185,7 @@ function move_planets(s, planets){
 }
 
 function move_houses(s, houses){
+    s.select('#zodiac').rotate(houses[0])
     for(i=0; i<12; i++){
         var line = s.select('#house_'+(i+1));
         var angle = houses[i];

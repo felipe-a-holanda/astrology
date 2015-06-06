@@ -1,5 +1,6 @@
 #from datetime import datetime
 from dateutil.parser import parse
+import pytz
 import geocoder
 import swisseph as swe
 swe.set_ephe_path('/usr/share/libswe/ephe/')
@@ -7,8 +8,11 @@ swe.set_ephe_path('/usr/share/libswe/ephe/')
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy
 from django.db import models
+from timezone_field import TimeZoneField
+from tzwhere.tzwhere import tzwhere
 from profiles.models import UserProfile
 
+tzwhere = tzwhere()
 
 class Event(models.Model):
     user = models.ForeignKey(UserProfile, related_name='events', null=True, verbose_name=_('User'))
@@ -41,11 +45,14 @@ class Event(models.Model):
 
     @classmethod
     def create(cls, name, date, time, location):
-        datetime_utc = parse("%s %s" % (date, time))
+        location = Location.create(location)
+
+        naive_date = parse("%s %s" % (date, time))
+        datetime = location.timezone.localize(naive_date)
+        datetime_utc = datetime.astimezone(pytz.utc)
+
         ephemeris = Ephemeris.create(datetime_utc)
         ephemeris.save()
-
-        location = Location.create(location)
 
         houses = Houses.create(datetime_utc, location.lat, location.lng)
 
@@ -107,6 +114,7 @@ class Ephemeris(models.Model):
 
     @classmethod
     def create(cls, datetime_utc):
+
         obj = cls()
         angles = obj._swe_calc(datetime_utc)
         for i, field in enumerate(obj._meta.fields[1:Ephemeris.N_PLANETS+1]):
@@ -157,6 +165,7 @@ class Location(models.Model):
     country = models.CharField(max_length=512)
     lat = models.FloatField()
     lng = models.FloatField()
+    timezone = TimeZoneField()
 
     class Meta:
         verbose_name = _('location')
@@ -171,11 +180,13 @@ class Location(models.Model):
         self.country = g.country
         self.lat = g.lat
         self.lng = g.lng
+        self.timezone = tzwhere.tzNameAt(self.lat, self.lng)
+
 
     @classmethod
     def create(cls, text):
         g = geocoder.google(text)
-        print "A:",g
+        print "A:", g
         if g.ok:
             print "G,ok"
             objs = cls.objects.filter(city=g.city, state=g.state, country=g.country)
