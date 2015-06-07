@@ -65,6 +65,7 @@ def deploy():
         run("git pull")
         run("git checkout -f")
         run("chown -R {http_user}:{http_group} .".format(**env))
+    os_dep()
     py_dep()
     with virtualenv():
         with cd(env.app_path):
