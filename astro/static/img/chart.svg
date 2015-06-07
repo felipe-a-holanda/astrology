@@ -7,7 +7,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 100.0 300.0 L 60.0, 300.0 A 240 240 0 0 0 92.1539030917 420.0 L 126.794919243 400.0 A 200 200 0 0 1 100.0 300.0 " fill="#FFBFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 100.0 300.0 L 60.0, 300.0 A 240 240 0 0 0 92.1539030917 420.0 L 126.794919243 400.0 A 200 200 0 0 1 100.0 300.0 " fill="#FFBFBF" fill-opacity="1" stroke="white" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Aries">
     <path d="M 60.0 300.0 L 10.0, 300.0 A 290 290 0 0 0 48.8526329025 445.0 L 92.1539030917 420.0 A 240 240 0 0 1 60.0 300.0 " fill="#FF7E7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -34,7 +34,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 126.794919243 400.0 L 92.1539030917, 420.0 A 240 240 0 0 0 180.0 507.846096908 L 200.0 473.205080757 A 200 200 0 0 1 126.794919243 400.0 " fill="#BFDFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 126.794919243 400.0 L 92.1539030917, 420.0 A 240 240 0 0 0 180.0 507.846096908 L 200.0 473.205080757 A 200 200 0 0 1 126.794919243 400.0 " fill="#BFDFBF" fill-opacity="1" stroke="white" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Taurus">
     <path d="M 92.1539030917 420.0 L 48.8526329025, 445.0 A 290 290 0 0 0 155.0 551.147367097 L 180.0 507.846096908 A 240 240 0 0 1 92.1539030917 420.0 " fill="#7EBF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -61,7 +61,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 200.0 473.205080757 L 180.0, 507.846096908 A 240 240 0 0 0 300.0 540.0 L 300.0 500.0 A 200 200 0 0 1 200.0 473.205080757 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 200.0 473.205080757 L 180.0, 507.846096908 A 240 240 0 0 0 300.0 540.0 L 300.0 500.0 A 200 200 0 0 1 200.0 473.205080757 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Gemini">
     <path d="M 180.0 507.846096908 L 155.0, 551.147367097 A 290 290 0 0 0 300.0 590.0 L 300.0 540.0 A 240 240 0 0 1 180.0 507.846096908 " fill="#FFFF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -88,7 +88,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 300.0 500.0 L 300.0, 540.0 A 240 240 0 0 0 420.0 507.846096908 L 400.0 473.205080757 A 200 200 0 0 1 300.0 500.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 300.0 500.0 L 300.0, 540.0 A 240 240 0 0 0 420.0 507.846096908 L 400.0 473.205080757 A 200 200 0 0 1 300.0 500.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Cancer">
     <path d="M 300.0 540.0 L 300.0, 590.0 A 290 290 0 0 0 445.0 551.147367097 L 420.0 507.846096908 A 240 240 0 0 1 300.0 540.0 " fill="#7E7EFF" fill-opacity="1" stroke="black" stroke-width="2">
@@ -115,7 +115,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 400.0 473.205080757 L 420.0, 507.846096908 A 240 240 0 0 0 507.846096908 420.0 L 473.205080757 400.0 A 200 200 0 0 1 400.0 473.205080757 " fill="#FFBFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 400.0 473.205080757 L 420.0, 507.846096908 A 240 240 0 0 0 507.846096908 420.0 L 473.205080757 400.0 A 200 200 0 0 1 400.0 473.205080757 " fill="#FFBFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Leo">
     <path d="M 420.0 507.846096908 L 445.0, 551.147367097 A 290 290 0 0 0 551.147367097 445.0 L 507.846096908 420.0 A 240 240 0 0 1 420.0 507.846096908 " fill="#FF7E7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -142,7 +142,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 473.205080757 400.0 L 507.846096908, 420.0 A 240 240 0 0 0 540.0 300.0 L 500.0 300.0 A 200 200 0 0 1 473.205080757 400.0 " fill="#BFDFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 473.205080757 400.0 L 507.846096908, 420.0 A 240 240 0 0 0 540.0 300.0 L 500.0 300.0 A 200 200 0 0 1 473.205080757 400.0 " fill="#BFDFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Virgo">
     <path d="M 507.846096908 420.0 L 551.147367097, 445.0 A 290 290 0 0 0 590.0 300.0 L 540.0 300.0 A 240 240 0 0 1 507.846096908 420.0 " fill="#7EBF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -169,7 +169,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 500.0 300.0 L 540.0, 300.0 A 240 240 0 0 0 507.846096908 180.0 L 473.205080757 200.0 A 200 200 0 0 1 500.0 300.0 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 500.0 300.0 L 540.0, 300.0 A 240 240 0 0 0 507.846096908 180.0 L 473.205080757 200.0 A 200 200 0 0 1 500.0 300.0 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Libra">
     <path d="M 540.0 300.0 L 590.0, 300.0 A 290 290 0 0 0 551.147367097 155.0 L 507.846096908 180.0 A 240 240 0 0 1 540.0 300.0 " fill="#FFFF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -196,7 +196,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 473.205080757 200.0 L 507.846096908, 180.0 A 240 240 0 0 0 420.0 92.1539030917 L 400.0 126.794919243 A 200 200 0 0 1 473.205080757 200.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 473.205080757 200.0 L 507.846096908, 180.0 A 240 240 0 0 0 420.0 92.1539030917 L 400.0 126.794919243 A 200 200 0 0 1 473.205080757 200.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Scorpio">
     <path d="M 507.846096908 180.0 L 551.147367097, 155.0 A 290 290 0 0 0 445.0 48.8526329025 L 420.0 92.1539030917 A 240 240 0 0 1 507.846096908 180.0 " fill="#7E7EFF" fill-opacity="1" stroke="black" stroke-width="2">
@@ -223,7 +223,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 400.0 126.794919243 L 420.0, 92.1539030917 A 240 240 0 0 0 300.0 60.0 L 300.0 100.0 A 200 200 0 0 1 400.0 126.794919243 " fill="#FFBFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 400.0 126.794919243 L 420.0, 92.1539030917 A 240 240 0 0 0 300.0 60.0 L 300.0 100.0 A 200 200 0 0 1 400.0 126.794919243 " fill="#FFBFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Sagittarius">
     <path d="M 420.0 92.1539030917 L 445.0, 48.8526329025 A 290 290 0 0 0 300.0 10.0 L 300.0 60.0 A 240 240 0 0 1 420.0 92.1539030917 " fill="#FF7E7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -250,7 +250,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 300.0 100.0 L 300.0, 60.0 A 240 240 0 0 0 180.0 92.1539030917 L 200.0 126.794919243 A 200 200 0 0 1 300.0 100.0 " fill="#BFDFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 300.0 100.0 L 300.0, 60.0 A 240 240 0 0 0 180.0 92.1539030917 L 200.0 126.794919243 A 200 200 0 0 1 300.0 100.0 " fill="#BFDFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Capricorn">
     <path d="M 300.0 60.0 L 300.0, 10.0 A 290 290 0 0 0 155.0 48.8526329025 L 180.0 92.1539030917 A 240 240 0 0 1 300.0 60.0 " fill="#7EBF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -272,7 +272,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 200.0 126.794919243 L 180.0, 92.1539030917 A 240 240 0 0 0 92.1539030917 180.0 L 126.794919243 200.0 A 200 200 0 0 1 200.0 126.794919243 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 200.0 126.794919243 L 180.0, 92.1539030917 A 240 240 0 0 0 92.1539030917 180.0 L 126.794919243 200.0 A 200 200 0 0 1 200.0 126.794919243 " fill="#FFFFBF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Aquarius">
     <path d="M 180.0 92.1539030917 L 155.0, 48.8526329025 A 290 290 0 0 0 48.8526329025 155.0 L 92.1539030917 180.0 A 240 240 0 0 1 180.0 92.1539030917 " fill="#FFFF7E" fill-opacity="1" stroke="black" stroke-width="2">
@@ -299,7 +299,7 @@
   <svg>
    <defs>
    </defs>
-   <path d="M 126.794919243 200.0 L 92.1539030917, 180.0 A 240 240 0 0 0 60.0 300.0 L 100.0 300.0 A 200 200 0 0 1 126.794919243 200.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="1">
+   <path d="M 126.794919243 200.0 L 92.1539030917, 180.0 A 240 240 0 0 0 60.0 300.0 L 100.0 300.0 A 200 200 0 0 1 126.794919243 200.0 " fill="#BFBFFF" fill-opacity="1" stroke="black" stroke-width="0">
    </path>
    <g class="svg_obj svg_sign" id="Pisces">
     <path d="M 92.1539030917 180.0 L 48.8526329025, 155.0 A 290 290 0 0 0 10.0 300.0 L 60.0 300.0 A 240 240 0 0 1 92.1539030917 180.0 " fill="#7E7EFF" fill-opacity="1" stroke="black" stroke-width="2">
@@ -628,5 +628,20 @@
 	<svg class="svg_aspect"><line id="uranus_neptune_aspect" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:0"></line></svg>
 	<svg class="svg_aspect"><line id="uranus_pluto_aspect" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:0"></line></svg>
 	<svg class="svg_aspect"><line id="neptune_pluto_aspect" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:0"></line></svg>
+
+ </svg>
+ <svg id="svg_houses">
+  <svg class="svg_house"> <line id="house_1" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_2" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_3" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_4" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_5" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_6" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_7" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_8" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_9" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_10" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_11" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
+  <svg class="svg_house"> <line id="house_12" x1="0" y1="0" x2="0" y2="0" style="stroke:rgb(0,0,0);stroke-width:1"> </line></svg>
  </svg>
 </svg>

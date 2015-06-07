@@ -38,3 +38,20 @@ PLANET_NAMES = {'sun': _('Sun'),
             'intp_apog': _('Intp_Apog'),
             'intp_perg': _('Intp_Perg'),
             }
+
+
+
+def dms(angle_float):
+
+    angle = abs(angle_float)
+    d = int(angle)
+    m = int((angle - d) * 60)
+    s = int((angle - d - m/60.0) * 3600)
+    d = int(angle_float)
+
+    if s:
+        return '%d %d %d' % (d,  m, s)
+    elif m:
+        return '%d %d' % (d,   m)
+    else:
+        return '%d' % (d)

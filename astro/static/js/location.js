@@ -8,7 +8,7 @@ $(function(){
 
     locationPicker.initialize();
 
-    $('#location').typeahead(null, {
+    $('#location-input').typeahead(null, {
       name: 'best-pictures',
       displayKey: 'value',
       hint: true,
